@@ -8,13 +8,15 @@ import Navbar from './components/Navbar'
 import { useContext } from 'react'
 import { AppContext } from './context/AppContext'
 import Myorders from './pages/Myorders'
+import Auth from './modals/Auth'
 
 const App = () => {
-  const {isSeller} = useContext(AppContext)
+  const {isSeller,showUserLogin} = useContext(AppContext)
   const isSellerPath=useLocation().pathname.includes('seller')
   return (
     <div>
      {isSellerPath ?null:<Navbar/>}
+     {showUserLogin ?<Auth/>:null}
       <div>
         <Routes>
           <Route path='/' element={<Home/>}/>

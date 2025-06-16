@@ -6,7 +6,7 @@ import {assets} from '../assets/assets'
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false)
-    const {user,setuser,navigate}=useContext(AppContext)
+    const {user,setuser,navigate,setshowUserLogin}=useContext(AppContext)
     return (
         <nav className="outfit-text flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
 
@@ -42,7 +42,7 @@ const Navbar = () => {
                         <li onClick={()=>setuser(null)} className=' p-1.5 cursor-pointer hover:bg-gray-100'>Logout</li>
                     </ul>
                     </div>
-            ):(<button className="cursor-pointer px-8 py-2 bg-green-700 hover:bg-green-600 transition text-white rounded-full">
+            ):(<button onClick={()=>setshowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-green-700 hover:bg-green-600 transition text-white rounded-full">
                     Login
                 </button>)}
             </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
                         <li onClick={()=>setuser(null)} className=' p-1.5 cursor-pointer hover:bg-gray-100'>Logout</li>
                     </ul>
                     </div>
-            ):(<button className="cursor-pointer px-8 py-2 bg-green-700 hover:bg-green-600 transition text-white rounded-full">
+            ):(<button onClick={()=>setshowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-green-700 hover:bg-green-600 transition text-white rounded-full">
                     Login
                 </button>)}
             </div>
