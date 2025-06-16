@@ -11,7 +11,7 @@ const Category = () => {
         {
             categories.map((item,index)=>(
                 <div onClick={()=>{
-                    navigate(`/product/${item.path.toLowerCase()}`)
+                    navigate(`/products/${item.path.toLowerCase()}`)
                     scrollTo(0,0)
                 }}  key={index} className={`group cursor-pointer py-5 px-3 rounded-lg gap-2 flex flex-col items-center justify-center `} style={({backgroundColor: item.bgColor})}>
                     <img src={item.image} className='max-w-20 transition group-hover:scale-110'/>
