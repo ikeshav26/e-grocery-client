@@ -11,6 +11,7 @@ import Myorders from './pages/Myorders'
 import Auth from './modals/Auth'
 import ProductCategory from './pages/ProductCategory'
 import Footer from './components/Footer'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   const {isSeller,showUserLogin} = useContext(AppContext)
@@ -30,6 +31,7 @@ const App = () => {
         </Routes>
       </div>
       {!isSellerPath && <Footer/>}
+      <Toaster/>
     </div>
   )
 }

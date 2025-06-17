@@ -3,8 +3,9 @@ import { AppContext } from '../context/AppContext';
 import { assets } from '../assets/assets';
 
 const ProductCard = ({ product }) => {
-    const [count, setCount] = useState(0);
-    const { navigate } = useContext(AppContext);
+    const { navigate,addToCart,cartItems,removeFromCart } = useContext(AppContext);
+
+
 
     return (
         <div
@@ -49,10 +50,10 @@ const ProductCard = ({ product }) => {
                         className="text-indigo-500"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {count === 0 ? (
+                        {!cartItems[product._id] ? (
                             <button
                                 className="flex items-center justify-center gap-1 bg-indigo-100 border border-indigo-300 w-16 sm:w-20 h-8 sm:h-9 rounded text-indigo-600 font-medium text-xs sm:text-sm"
-                                onClick={() => setCount(1)}
+                                onClick={() => addToCart(product._id)}
                             >
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M.583.583h2.333l1.564 7.81a1.17 1.17 0 0 0 1.166.94h5.67a1.17 1.17 0 0 0 1.167-.94l.933-4.893H3.5m2.333 8.75a.583.583 0 1 1-1.167 0 .583.583 0 0 1 1.167 0m6.417 0a.583.583 0 1 1-1.167 0 .583.583 0 0 1 1.167 0" stroke="#615fff" strokeLinecap="round" strokeLinejoin="round" />
@@ -62,14 +63,14 @@ const ProductCard = ({ product }) => {
                         ) : (
                             <div className="flex items-center justify-center gap-2 bg-indigo-200 w-16 sm:w-20 h-8 sm:h-9 rounded select-none text-sm sm:text-base">
                                 <button
-                                    onClick={() => setCount((prev) => Math.max(prev - 1, 0))}
+                                    onClick={() =>removeFromCart(product._id)}
                                     className="px-2 h-full text-lg"
                                 >
                                     -
                                 </button>
-                                <span className="w-5 text-center">{count}</span>
+                                <span className="w-5 text-center">{cartItems[product._id]}</span>
                                 <button
-                                    onClick={() => setCount((prev) => prev + 1)}
+                                    onClick={() => addToCart(product._id)}
                                     className="px-2 h-full text-lg"
                                 >
                                     +
