@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
     return (
         <div
             onClick={() => {
-                navigate(`/product/${product.category.toLowerCase()}/${product.id}`);
+                navigate(`/product/${product.category.toLowerCase()}/${product._id}`);
             }}
             className="border border-gray-300 rounded-md px-3 py-2 bg-white min-w-[12rem] max-w-[14rem] w-full shadow-sm hover:shadow-md transition duration-300 cursor-pointer"
         >
