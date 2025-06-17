@@ -3,6 +3,7 @@ import { AppContext } from '../context/AppContext'
 import Hero from '../components/Hero'
 import Category from '../components/Category'
 import BestSeller from '../components/BestSeller'
+import NewsLetter from '../components/NewsLetter'
 
 const Home = () => {
 
@@ -11,6 +12,7 @@ const Home = () => {
       <Hero/>
       <Category/>
       <BestSeller/>
+      <NewsLetter/>
     </div>
   )
 }
