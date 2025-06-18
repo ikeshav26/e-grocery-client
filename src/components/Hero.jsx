@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div className="relative ">
-      <img src={assets.main_banner_bg} className="hidden md:block w-full" />
-      <img src={assets.main_banner_bg_sm} className="md:hidden w-full"/>
+      <img src={assets.main_banner_bg} className="hidden md:block w-full z-1" />
+      <img src={assets.main_banner_bg_sm} className="md:hidden w-full z-1"/>
       <div className="absolute inset-0 flex flex-col items-center md:items-start justify-end md:justify-center pb-24 md:pb-0 md:pl-18 lg:pl-24">
         <h1 className="text-3xl md:text-4xl font-bold text-center md:text-left max-w-72 md:max-w-80 leading-tight lg:leading-15">
             Freshness You Can Trust, Savings You Will Love!

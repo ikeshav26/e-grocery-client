@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
@@ -7,7 +7,13 @@ import { toast } from 'react-hot-toast'
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false)
-    const {user,setuser,navigate,setshowUserLogin,cartCount}=useContext(AppContext)
+    const {user,setuser,navigate,setshowUserLogin,cartCount,searchQuery,setsearchQuery}=useContext(AppContext)
+
+    useEffect(() => {
+        if (searchQuery.length>0){
+        navigate('/products')
+    }
+    }, [searchQuery, navigate])
     return (
         <nav className="outfit-text flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
 
@@ -22,7 +28,7 @@ const Navbar = () => {
                  to='/products'>Products</NavLink>
 
                 <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
-                    <input className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" type="text" placeholder="Search products" />
+                    <input  onChange={(e)=>setsearchQuery(e.target.value)} className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500" type="text" placeholder="Search products" />
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.836 10.615 15 14.695" stroke="#7A7B7D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
                         <path clip-rule="evenodd" d="M9.141 11.738c2.729-1.136 4.001-4.224 2.841-6.898S7.67.921 4.942 2.057C2.211 3.193.94 6.281 2.1 8.955s4.312 3.92 7.041 2.783" stroke="#7A7B7D" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
@@ -58,7 +64,7 @@ const Navbar = () => {
             </button>
 
             {/* Mobile Menu */}
-            <div className={`${open ? 'flex' : 'hidden'} absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}>
+            <div className={`${open ? 'flex' : 'hidden'} absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden z-99`}>
                 <NavLink className={({ isActive }) => (isActive ? 'border-b-2 border-green-600' : '')} to='/'>Home</NavLink>
                 <NavLink className={({ isActive }) => (isActive ? 'border-b-2 border-green-600' : '')} to='/products'>Products</NavLink>
                 {user?( <div className='relative group'>
