@@ -7,7 +7,7 @@ import Cart from './pages/Cart'
 import Navbar from './components/Navbar'
 import { useContext } from 'react'
 import { AppContext } from './context/AppContext'
-import Myorders from './pages/Myorders'
+import MyOrders from './pages/MyOrders'
 import Auth from './modals/Auth'
 import ProductCategory from './pages/ProductCategory'
 import Footer from './components/Footer'
@@ -27,7 +27,7 @@ const App = () => {
           <Route path='/product/:category/:id' element={<ProductDetails/>}/>
           <Route path='/products/:category' element={<ProductCategory/>}/>
           <Route path='/cart' element={<Cart/>}/>
-          <Route path='/my-orders' element={<Myorders/>}/>
+          <Route path='/my-orders' element={<MyOrders/>}/>
         </Routes>
       </div>
       {!isSellerPath && <Footer/>}
