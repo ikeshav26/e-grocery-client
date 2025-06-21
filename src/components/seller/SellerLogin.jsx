@@ -6,7 +6,7 @@ import { AppContext } from "../../context/AppContext";
 const SellerLogin = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
-    const {isSeller,setisSeller}=useContext(AppContext)
+    const {isSeller,setisSeller,navigate}=useContext(AppContext)
 
     const submitHandler=(e)=>{
         e.preventDefault();
@@ -24,7 +24,7 @@ const SellerLogin = () => {
 
     useEffect(() => {
       if(isSeller){
-        naavigate('/seller')
+        navigate('/seller')
       }
     }, [isSeller])
   return !isSeller && (
