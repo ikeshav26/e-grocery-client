@@ -39,7 +39,7 @@ const SellerLogin = () => {
         >
           <div
             className="text-3xl absolute top-4 right-4 cursor-pointer"
-            onClick={() => setshowUserLogin(false)}
+            onClick={() =>navigate('/')}
           >
             <MdClose />
           </div>

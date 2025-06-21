@@ -46,7 +46,10 @@ const Navbar = () => {
                     <img src={assets.profile_icon} className='w-10 cursor-pointer'/>
                     <ul className='dropdown hidden group-hover:block absolute top-10 right-0 bg-white shadow-md rounded-md w-48 text-sm border border-gray-200 text-gray-700 px-2 py-3 z-40'>
                         <li onClick={()=>{navigate('/my-orders')}} className=' p-1.5 cursor-pointer hover:bg-gray-100'>My Orders</li>
-                        <li onClick={()=>setuser(null)} className=' p-1.5 cursor-pointer hover:bg-gray-100'>Logout</li>
+                        <li onClick={()=>{navigate('/seller-login')}} className=' p-1.5 cursor-pointer hover:bg-gray-100'>Seller Login</li>
+                        <li onClick={()=>{setuser(null)
+                        toast.success("Logout successfull")}
+                        } className=' p-1.5 cursor-pointer hover:bg-gray-100'>Logout</li>
                     </ul>
                     </div>
             ):(<button onClick={()=>setshowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-green-700 hover:bg-green-600 transition text-white rounded-full">
@@ -71,7 +74,10 @@ const Navbar = () => {
                     <img src={assets.profile_icon} className='w-10 cursor-pointer'/>
                     <ul className=' hidden group-hover:block absolute top-10 left-0 bg-white shadow-md rounded-md w-48 text-sm border border-gray-200 text-gray-700 px-2 py-3 z-40'>
                         <li onClick={()=>{navigate('/my-orders')}} className=' p-1.5 cursor-pointer hover:bg-gray-100'>My Orders</li>
-                        <li onClick={()=>setuser(null)} className=' p-1.5 cursor-pointer hover:bg-gray-100'>Logout</li>
+                        <li onClick={()=>{navigate('/seller-login')}} className=' p-1.5 cursor-pointer hover:bg-gray-100'>Seller Login</li>
+                        <li onClick={()=>{setuser(null)
+                            toast.success("Logout successfull")
+                        }} className=' p-1.5 cursor-pointer hover:bg-gray-100'>Logout</li>
                     </ul>
                     </div>
             ):(<button onClick={()=>setshowUserLogin(true)} className="cursor-pointer px-8 py-2 bg-green-700 hover:bg-green-600 transition text-white rounded-full">
