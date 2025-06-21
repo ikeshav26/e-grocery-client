@@ -3,7 +3,7 @@ import React from 'react'
 const Sellerlayout = () => {
   return (
     <div>
-      seller
+      seller layout
     </div>
   )
 }
